@@ -1242,12 +1242,22 @@ a:hover {
   padding: 5.5rem 5vw;
   border-top: 1px solid var(--color-border-soft);
   border-bottom: 1px solid var(--color-border-soft);
-  text-align: center;
 }
 
 .home__details-inner {
-  max-width: 56rem;
+  max-width: 72rem;
   margin: 0 auto;
+}
+
+.home__details-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(1.5rem, 3.5vw, 3rem);
+  align-items: center;
+}
+
+.home__details-text {
+  text-align: center;
 }
 
 .home__details-title {
@@ -1281,6 +1291,23 @@ a:hover {
 .home__details-map:hover {
   color: var(--color-text);
   text-decoration: underline;
+}
+
+.home__details-photo {
+  display: flex;
+  justify-content: center;
+}
+
+.home__details-photo-img {
+  width: min(900px, 100%);
+  height: auto;
+  display: block;
+  border-radius: 14px;
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.12),
+    0 2px 10px rgba(0, 0, 0, 0.08);
+  /* Avoid accidental blur from transforms/filters on ancestors */
+  transform: translateZ(0);
 }
 
 /* used in program section map link */
@@ -1432,7 +1459,7 @@ a:hover {
 /* ── HOME WEEKEND PROGRAM ── */
 .home__program {
   background: var(--color-bg);
-  padding: 6rem 5vw 7rem;
+  padding: 6rem 5vw 0;
   text-align: center;
 }
 
@@ -1496,15 +1523,24 @@ a:hover {
   padding-top: 0.5rem;
 }
 
-/* ── HOME IMAGE DIVIDER ── */
-.home__image {
-  min-height: 70vh;
-  background-size: cover;
-  background-position: center;
+/* ── HOME COUPLE PHOTO (bottom) ── */
+.home__couple {
+  background: var(--color-bg);
+  padding: 0;
 }
 
-.home__image-overlay {
-  background: rgba(20, 17, 14, 0.18) !important;
+.home__couple-inner {
+  width: 100%;
+}
+
+.home__couple-img {
+  width: 100%;
+  height: min(100vh, 820px);
+  display: block;
+  object-fit: cover;
+  border-radius: 0;
+  box-shadow: none;
+  transform: translateZ(0);
 }
 
 /* ── RSVP BAND (notice style) ── */
@@ -1753,6 +1789,10 @@ a:hover {
   }
 
   .home__program-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home__details-grid {
     grid-template-columns: 1fr;
   }
 
