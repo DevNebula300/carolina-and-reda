@@ -1,10 +1,14 @@
 :root {
-  --color-bg: #1a1614;
-  --color-surface: #2c2522;
-  --color-text: #f5f0eb;
-  --color-text-muted: #c4b8ae;
+  /* Light theme */
+  --color-bg: #fbf7f2;
+  --color-surface: #ffffff;
+  --color-text: #141210;
+  --color-text-muted: rgba(20, 18, 16, 0.68);
   --color-accent: #a67c52;
-  --color-overlay: rgba(26, 22, 20, 0.55);
+  --color-border: rgba(20, 18, 16, 0.12);
+  --color-border-soft: rgba(20, 18, 16, 0.08);
+  /* Overlay for image sections */
+  --color-overlay: rgba(0, 0, 0, 0.38);
   --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-body: 'Outfit', system-ui, sans-serif;
 }
@@ -26,6 +30,7 @@ body {
   color: var(--color-text);
   background: var(--color-bg);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, .font-display {
@@ -62,6 +67,14 @@ a:hover {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+/* image sections should render text white */
+.section--bg > .page-hero__inner,
+.section--bg > .page-hero__inner *,
+.home__hero .home__hero-inner,
+.home__hero .home__hero-inner * {
+  color: #fff;
 }
 
 .section--bg .section__overlay {
@@ -119,13 +132,28 @@ a:hover {
   right: 0;
   z-index: 100;
   padding: 1rem 1.5rem;
-  background: transparent;
-  transition: background 0.25s ease;
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
-.nav.scrolled {
-  background: rgba(26, 22, 20, 0.92);
-  backdrop-filter: blur(8px);
+/* On home page at scroll-top: fully transparent, white text */
+.nav--transparent {
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  backdrop-filter: none;
+}
+.nav--transparent .nav__brand,
+.nav--transparent .nav__menu a {
+  color: #fff;
+}
+.nav--transparent .nav__menu a.active {
+  opacity: 1;
+}
+
+/* On inner pages or after scrolling: white bg */
+.nav--solid {
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid var(--color-border-soft);
+  backdrop-filter: blur(10px);
 }
 
 .nav__brand {
@@ -171,7 +199,8 @@ a:hover {
 .program-day {
   text-align: left;
   padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--color-border-soft);
   border-radius: 8px;
 }
 
@@ -198,7 +227,7 @@ a:hover {
   font-family: var(--font-body);
   font-size: 0.95rem;
   font-weight: 500;
-  color: var(--color-bg);
+  color: #fff;
   background: var(--color-text);
   border: none;
   border-radius: 4px;
@@ -243,25 +272,147 @@ a:hover {
   border: none;
 }
 
-.moodboard-wrapper {
+/* ── DRESS CODE PAGE ── */
+.dresscode-page {
+  background: var(--color-bg);
+  overflow-x: hidden;
   width: 100%;
-  margin: 3rem 0 2rem;
-  padding: 0;
+}
+
+.dresscode-intro {
+  padding: calc(88px + 4rem) 5vw 4rem;
+  text-align: center;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.dresscode-intro__inner {
+  max-width: 52rem;
+  margin: 0 auto;
+}
+
+.dresscode-intro__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 500;
+  color: var(--color-text);
+  margin: 0.5rem 0 1.25rem;
+}
+
+.dresscode-intro__body {
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  line-height: 1.8;
+  color: var(--color-text-muted);
+  margin: 0 0 2.5rem;
+}
+
+.dresscode-intro__days {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.dresscode-intro__day {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  max-width: 18rem;
+  text-align: center;
+}
+
+.dresscode-intro__day-label {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.dresscode-intro__day-desc {
+  font-size: 0.98rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.dresscode-intro__divider {
+  width: 1px;
+  height: 3.5rem;
+  background: var(--color-border);
+  flex-shrink: 0;
+  align-self: center;
+}
+
+/* ── MOODBOARD SECTION ── */
+.dresscode-board {
+  padding: 4rem 0 5rem;
+  background: var(--color-bg);
+}
+
+.dresscode-board--alt {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border-soft);
+}
+
+.dresscode-board__header {
+  text-align: center;
+  padding: 0 5vw 2.5rem;
+}
+
+.dresscode-board__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+  color: var(--color-text);
+  margin: 0.25rem 0 0.4rem;
+}
+
+.dresscode-board__sub {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin: 0;
+}
+
+/* ── PINTEREST-STYLE PIN GRID ── */
+.pin-grid {
+  column-count: 4;
+  column-gap: 10px;
+  padding: 0 10px;
+  width: 100%;
   box-sizing: border-box;
 }
 
-.moodboard {
-  column-count: 3;
-  column-gap: 4px;
+.pin {
+  break-inside: avoid;
+  margin-bottom: 10px;
+  border-radius: 16px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+  cursor: zoom-in;
 }
 
-.moodboard__item {
+.pin__img {
   width: 100%;
   display: block;
-  border-radius: 0;
-  margin: 0 0 4px;
-  break-inside: avoid;
+  border-radius: 16px;
+  transition: transform 0.4s ease;
 }
+
+.pin:hover .pin__img {
+  transform: scale(1.03);
+}
+
+/* Vary column widths slightly for authentic Pinterest feel */
+.pin:nth-child(5n + 1) { break-before: column; }
+
+/* Legacy selectors kept for safety */
+.moodboard-wrapper { display: none; }
+.moodboard         { display: none; }
 
 .reveal {
   opacity: 0;
@@ -272,6 +423,18 @@ a:hover {
 .reveal--visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (max-width: 900px) {
+  .pin-grid { column-count: 3; }
+  .dresscode-intro__divider { display: none; }
+  .dresscode-intro__days { flex-direction: column; align-items: center; }
+}
+
+@media (max-width: 600px) {
+  .pin-grid { column-count: 2; column-gap: 6px; padding: 0 6px; }
+  .pin { margin-bottom: 6px; border-radius: 10px; }
+  .pin__img { border-radius: 10px; }
 }
 
 /* ═══════════════════════════════════
@@ -292,7 +455,8 @@ a:hover {
 .page-hero__inner {
   position: relative;
   z-index: 1;
-  padding: 2rem 1.5rem;
+  /* Push content below the fixed nav */
+  padding: calc(88px + 2rem) 1.5rem 2rem;
   max-width: 52rem;
 }
 
@@ -413,13 +577,18 @@ a:hover {
 
 /* CENTRED section */
 .page-centred {
-  padding: 6rem 1.5rem;
+  /* top padding clears the fixed nav (~88px) + generous breathing room */
+  padding: calc(88px + 5rem) 1.5rem 6rem;
+  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
 }
 
 .page-centred__inner {
-  max-width: 42rem;
+  max-width: 44rem;
+  width: 100%;
   text-align: center;
 }
 
@@ -439,7 +608,7 @@ a:hover {
   margin: 2rem 0 2.5rem;
   padding: 1.5rem;
   border-left: 2px solid var(--color-accent);
-  background: rgba(255,255,255,0.04);
+  background: rgba(0,0,0,0.03);
   border-radius: 0 6px 6px 0;
 }
 
@@ -474,7 +643,7 @@ a:hover {
   align-items: baseline;
   gap: 1.25rem;
   padding-bottom: 0.85rem;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid var(--color-border-soft);
 }
 
 .page-timeline__time {
@@ -497,7 +666,7 @@ a:hover {
 }
 
 .page-hotel-item {
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .page-hotel-link {
@@ -577,6 +746,310 @@ a:hover {
     flex-direction: column;
     align-items: flex-start;
   }
+}
+
+/* ── DISCOVER PDF guide band ── */
+.discover-pdf-band {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 2.5rem 5vw;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.discover-pdf-band__text {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.3vw, 1.05rem);
+  color: var(--color-text);
+  margin: 0;
+}
+
+.discover-pdf-band__btn {
+  display: inline-block;
+  padding: 0.65rem 1.8rem;
+  border: 1.5px solid var(--color-text);
+  color: var(--color-text);
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.discover-pdf-band__btn:hover {
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+
+/* ── DISCOVER alternating spot rows ── */
+.dspot-section {
+  background: var(--color-bg);
+}
+
+.dspot-section__header {
+  padding: 5rem 5vw 3rem;
+  text-align: center;
+}
+
+.dspot-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 38vh;
+  border-top: 1px solid var(--color-border-soft);
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.dspot-row.page-reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dspot-row--reverse .dspot-row__img-wrap { order: 2; }
+.dspot-row--reverse .dspot-row__text     { order: 1; }
+
+.dspot-row__img-wrap {
+  overflow: hidden;
+}
+
+.dspot-row__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s ease;
+}
+
+.dspot-row:hover .dspot-row__img {
+  transform: scale(1.04);
+}
+
+.dspot-row__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2.5rem 5vw;
+  background: var(--color-surface);
+}
+
+.dspot-row__num {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.dspot-row__name {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 500;
+  color: var(--color-text);
+  margin: 0 0 1rem;
+  line-height: 1.15;
+}
+
+.dspot-row__desc {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+  margin: 0 0 1.75rem;
+}
+
+.dspot-row__link {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--color-accent);
+  transition: color 0.2s;
+}
+
+.dspot-row__link:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .dspot-row {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .dspot-row--reverse .dspot-row__img-wrap { order: 1; }
+  .dspot-row--reverse .dspot-row__text     { order: 2; }
+
+  .dspot-row__img-wrap {
+    height: 55vw;
+  }
+
+  .dspot-row__text {
+    padding: 3rem 2rem;
+  }
+}
+
+/* ── RSVP / REGISTRY HERO (full-screen bg image) ── */
+.rsvp-hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.rsvp-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 46rem;
+  padding: calc(88px + 2rem) 1.5rem 3rem;
+}
+
+.rsvp-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 500;
+  line-height: 1.15;
+  color: #fff;
+  margin: 0 0 1.5rem;
+}
+
+.rsvp-hero__body {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  color: rgba(255,255,255,0.85);
+  line-height: 1.7;
+  margin: 0 0 0.6rem;
+}
+
+.rsvp-hero__btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2.25rem;
+}
+
+.rsvp-btn {
+  background: rgba(255,255,255,0.95);
+  color: #141210;
+}
+
+.rsvp-btn:hover {
+  background: #fff;
+}
+
+.rsvp-btn--outline {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.7);
+}
+
+.rsvp-btn--outline:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: #fff;
+}
+
+/* ── DISCOVER page ── */
+.discover-img-strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 55vh;
+  min-height: 260px;
+}
+
+.discover-img-strip__item {
+  overflow: hidden;
+}
+
+.discover-img-strip__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.discover-img-strip__item:hover img {
+  transform: scale(1.04);
+}
+
+.discover-spots-section {
+  padding: 6rem 5vw;
+}
+
+.discover-spots-inner {
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+.discover-closing {
+  height: 50vh;
+  min-height: 240px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+/* ── DISCOVER simple list ── */
+.discover-simple-list {
+  list-style: none;
+  padding: 0;
+  margin: 2.5rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  text-align: left;
+}
+
+.discover-simple-item {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.discover-simple-item:first-child {
+  border-top: 1px solid var(--color-border);
+}
+
+.discover-simple-link {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.discover-simple-name {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.discover-simple-arrow {
+  font-size: 0.95rem;
+  color: var(--color-accent);
+}
+
+.discover-simple-desc {
+  display: block;
+  margin-top: 0.3rem;
+  color: var(--color-text-muted);
+  font-size: 0.97rem;
+  line-height: 1.55;
 }
 
 .page-spots {
@@ -689,7 +1162,19 @@ a:hover {
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
+  /* bottom padding for text, no top needed — text is at bottom */
   padding: 0 0 5rem 5vw;
+}
+/* Ensure hero background image covers behind nav too */
+.home__hero.section--bg {
+  background-attachment: local;
+}
+
+.home__hero--center {
+  align-items: center;
+  justify-content: center;
+  padding: 0 1.5rem;
+  text-align: center;
 }
 
 .home__hero-inner {
@@ -719,6 +1204,12 @@ a:hover {
   color: var(--color-text);
 }
 
+.home__hero-title--tight {
+  max-width: 26ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .home__hero-meta {
   font-family: var(--font-display);
   font-size: clamp(1rem, 2vw, 1.25rem);
@@ -728,14 +1219,95 @@ a:hover {
   letter-spacing: 0.02em;
 }
 
+.home__hero-map {
+  display: inline-block;
+  margin-top: 1.75rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.home__hero-map:hover {
+  color: var(--color-text);
+  text-decoration: underline;
+}
+
+/* ── HOME DETAILS (3 lines + map link) ── */
+.home__details {
+  background: var(--color-bg);
+  padding: 5.5rem 5vw;
+  border-top: 1px solid var(--color-border-soft);
+  border-bottom: 1px solid var(--color-border-soft);
+  text-align: center;
+}
+
+.home__details-inner {
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+.home__details-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 500;
+  color: var(--color-text);
+  margin: 0 0 1rem;
+  line-height: 1.15;
+}
+
+.home__details-meta {
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  color: var(--color-text-muted);
+  margin: 0.2rem 0;
+}
+
+.home__details-map {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.home__details-map:hover {
+  color: var(--color-text);
+  text-decoration: underline;
+}
+
+/* used in program section map link */
+.home__program-map {
+  display: inline-block;
+  margin-top: 1.75rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(245, 240, 235, 0.75);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.home__program-map:hover {
+  color: var(--color-text);
+  text-decoration: underline;
+}
 /* ── TICKER ── */
 .home__ticker {
   overflow: hidden;
   white-space: nowrap;
   background: var(--color-surface);
   padding: 0.9rem 0;
-  border-top: 1px solid rgba(255,255,255,0.06);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-top: 1px solid var(--color-border-soft);
+  border-bottom: 1px solid var(--color-border-soft);
 }
 
 .home__ticker-track {
@@ -855,6 +1427,84 @@ a:hover {
   line-height: 1.8;
   color: rgba(245, 240, 235, 0.8);
   margin: 0;
+}
+
+/* ── HOME WEEKEND PROGRAM ── */
+.home__program {
+  background: var(--color-bg);
+  padding: 6rem 5vw 7rem;
+  text-align: center;
+}
+
+.home__program-inner {
+  width: 100%;
+  max-width: 62rem;
+  margin: 0 auto;
+}
+
+.home__program-kicker {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin: 0 0 2.25rem;
+}
+
+.home__program-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin: 0 auto 2.5rem;
+}
+
+.home__program-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  padding: 2.5rem 2rem;
+}
+
+.home__program-date {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 500;
+  color: var(--color-text);
+  margin: 0 0 0.85rem;
+}
+
+.home__program-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--color-text);
+  margin: 0 0 0.35rem;
+}
+
+.home__program-place,
+.home__program-time {
+  font-size: 0.98rem;
+  color: var(--color-text-muted);
+  margin: 0.1rem 0;
+}
+
+.home__program-note {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+  margin: 0 auto;
+  max-width: 52rem;
+  padding-top: 0.5rem;
+}
+
+/* ── HOME IMAGE DIVIDER ── */
+.home__image {
+  min-height: 70vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.home__image-overlay {
+  background: rgba(20, 17, 14, 0.18) !important;
 }
 
 /* ── RSVP BAND (notice style) ── */
@@ -1048,11 +1698,11 @@ a:hover {
 .btn--outline {
   background: transparent;
   color: var(--color-text);
-  border: 1px solid rgba(245, 240, 235, 0.55);
+  border: 1px solid var(--color-border);
 }
 
 .btn--outline:hover {
-  background: rgba(255,255,255,0.08);
+  background: rgba(0,0,0,0.04);
   border-color: var(--color-text);
 }
 
@@ -1100,6 +1750,20 @@ a:hover {
 
   .home__quote-banner {
     background-attachment: scroll;
+  }
+
+  .home__program-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .discover-img-strip {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .discover-img-strip__item {
+    height: 50vw;
+    min-height: 200px;
   }
 }
 

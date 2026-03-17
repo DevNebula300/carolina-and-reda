@@ -1,8 +1,7 @@
-import { NavLink, Outlet } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { NavLink, Outlet, useLocation } from 'react-router-dom'
 
-const menuItems = [
-  { to: '/invitation', label: 'Invitation', end: true },
-  { to: '/program', label: 'Program' },
+const menuItems: Array<{ to: string; label: string; end?: boolean }> = [
   { to: '/rsvp', label: 'RSVP' },
   { to: '/accommodations', label: 'Accommodations' },
   { to: '/discover-marrakech', label: 'Discover Marrakech' },
@@ -11,9 +10,23 @@ const menuItems = [
 ]
 
 function Layout() {
+  const { pathname } = useLocation()
+  const isHome = pathname === '/'
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    if (!isHome) { setScrolled(true); return }
+    setScrolled(window.scrollY > 60)
+    const onScroll = () => setScrolled(window.scrollY > 60)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [isHome])
+
+  const navClass = ['nav', scrolled ? 'nav--solid' : 'nav--transparent'].join(' ')
+
   return (
     <>
-      <nav className="nav">
+      <nav className={navClass}>
         <NavLink to="/" className="nav__brand">
           Carolina &amp; Reda Wedding Celebration
         </NavLink>

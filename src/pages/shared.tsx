@@ -14,35 +14,35 @@ export const RSVP_LINK = '#'
 export const ADD_TO_CALENDAR_LINK = '#'
 
 export const ACCOMMODATIONS = [
-  { name: 'Jnane Tamsna', url: '#' },
-  { name: 'Hotel Riu Tikida Palmeraie', url: '#' },
-  { name: 'Be Live Experience Marrakech Palmeraie (4-star)', url: '#' },
-  { name: 'Palais Ronsard Relais & Châteaux', url: '#' },
-  { name: 'Les Deux Tours', url: '#' },
-  { name: 'Dar Sabra', url: '#' },
+  { name: 'Jnane Tamsna', url: 'https://www.google.com/search?q=Jnane+Tamsna+Marrakech' },
+  { name: 'Hotel Riu Tikida Palmeraie', url: 'https://www.google.com/search?q=Hotel+Riu+Tikida+Palmeraie+Marrakech' },
+  { name: 'Be Live Experience Marrakech Palmeraie (4-star)', url: 'https://www.google.com/search?q=Be+Live+Experience+Marrakech+Palmeraie' },
+  { name: 'Palais Ronsard Relais & Châteaux', url: 'https://www.google.com/search?q=Palais+Ronsard+Relais+%26+Ch%C3%A2teaux+Marrakech' },
+  { name: 'Les Deux Tours', url: 'https://www.google.com/search?q=Les+Deux+Tours+Marrakech' },
+  { name: 'Dar Sabra', url: 'https://www.google.com/search?q=Dar+Sabra+Marrakech' },
 ]
 
 export const DISCOVER_SPOTS = [
   {
     name: 'Café Bacha',
     desc: 'For a brunch that is truly an experience (and high coffee intake).',
-    url: '#',
+    url: 'https://www.google.com/search?q=Caf%C3%A9+Bacha+Marrakech',
   },
   {
     name: 'Royal Mansour',
     desc: 'For a touch of magic. Stop in for a drink or treat yourself to the spa.',
-    url: '#',
+    url: 'https://www.google.com/search?q=Royal+Mansour+Marrakech',
   },
   {
     name: 'YSL Museum + Gallery X',
     desc: 'For a dose of art and creative inspiration.',
-    url: '#',
+    url: 'https://www.google.com/search?q=YSL+Museum+Marrakech',
   },
-  { name: 'Boutique X', desc: 'For shopping.', url: '#', },
+  { name: 'Boutique X', desc: 'For shopping.', url: 'https://www.google.com/search?q=boutique+shopping+Marrakech', },
   {
     name: 'Boutique Y',
     desc: 'To find a traditional Moroccan dress and accessories for Friday.',
-    url: '#',
+    url: 'https://www.google.com/search?q=traditional+Moroccan+dress+Marrakech+boutique',
   },
 ]
 

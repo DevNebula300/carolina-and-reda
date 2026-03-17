@@ -1,55 +1,94 @@
 import { useEffect, useRef } from 'react'
-import { MOODBOARD_IMAGES } from './shared'
 
-export function DressCodePage() {
-  const gridRef = useRef<HTMLDivElement | null>(null)
+// Both moodboards use the Saturday images for now — Friday images to be added later
+const SAT_IMAGES = Array.from({ length: 21 }, (_, i) => `/saturday/s${i + 1}.jpg`)
+
+function MasonryBoard({ images, id }: { images: string[]; id: string }) {
+  const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const grid = gridRef.current
+    const grid = ref.current
     if (!grid) return
-
-    const items = Array.from(grid.querySelectorAll<HTMLElement>('.moodboard__item'))
+    const items = Array.from(grid.querySelectorAll<HTMLElement>('.pin'))
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('reveal--visible')
+            const el = entry.target as HTMLElement
+            el.style.opacity = '1'
+            el.style.transform = 'translateY(0)'
+            observer.unobserve(el)
           }
         })
       },
-      { threshold: 0.2 }
+      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
     )
-
-    items.forEach((el) => observer.observe(el))
+    items.forEach((el, i) => {
+      el.style.transitionDelay = `${(i % 4) * 60}ms`
+      observer.observe(el)
+    })
     return () => observer.disconnect()
   }, [])
 
   return (
-    <main>
-      <section className="section">
-        <div className="section__inner">
-          <h2 className="section__heading">Dress Code &amp; Moodboard</h2>
-          <p className="section__body">
-            A little inspiration to bring you into the magic of Marrakech. This celebration is a space to have fun, play
-            and express yourself. Our vision is to create an atmosphere full of colour and authenticity — bring your
-            magic.
-          </p>
-          <p className="section__body">
-            <strong>Friday</strong> is the wedding day: traditional and elegant.
-          </p>
-          <p className="section__body">
-            <strong>Saturday</strong> is a celebration of love — joyful, stylish and effortlessly cool.
-          </p>
+    <div className="pin-grid" ref={ref} aria-label={id}>
+      {images.map((src, i) => (
+        <div key={i} className="pin">
+          <img src={src} alt="" loading="lazy" className="pin__img" />
         </div>
-        <div className="moodboard-wrapper" aria-label="Saturday moodboard">
-          <div className="moodboard" ref={gridRef}>
-            {MOODBOARD_IMAGES.map((src, i) => (
-              <img key={i} src={src} alt="" loading="lazy" className="moodboard__item reveal" />
-            ))}
-          </div>
-        </div>
-      </section>
-    </main>
+      ))}
+    </div>
   )
 }
 
+export function DressCodePage() {
+  return (
+    <main className="dresscode-page">
+
+      {/* ── INTRO ── */}
+      <section className="dresscode-intro">
+        <div className="dresscode-intro__inner">
+          <p className="page-eyebrow page-eyebrow--dark">Dress Code &amp; Moodboard</p>
+          <h1 className="dresscode-intro__title">Bring your magic</h1>
+          <p className="dresscode-intro__body">
+            A little inspiration to bring you into the magic of Marrakech. This celebration is a
+            space to have fun, play and express yourself. Our vision is to create an atmosphere
+            full of colour and authenticity.
+          </p>
+          <div className="dresscode-intro__days">
+            <div className="dresscode-intro__day">
+              <span className="dresscode-intro__day-label">Friday</span>
+              <span className="dresscode-intro__day-desc">The wedding day — traditional and elegant.</span>
+            </div>
+            <div className="dresscode-intro__divider" />
+            <div className="dresscode-intro__day">
+              <span className="dresscode-intro__day-label">Saturday</span>
+              <span className="dresscode-intro__day-desc">A celebration of love — joyful, stylish and effortlessly cool.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FRIDAY MOODBOARD ── */}
+      <section className="dresscode-board">
+        <div className="dresscode-board__header">
+          <p className="page-eyebrow page-eyebrow--dark">Moodboard</p>
+          <h2 className="dresscode-board__title">Friday</h2>
+          <p className="dresscode-board__sub">Traditional &amp; Elegant</p>
+        </div>
+        <MasonryBoard images={SAT_IMAGES} id="Friday moodboard" />
+      </section>
+
+      {/* ── SATURDAY MOODBOARD ── */}
+      <section className="dresscode-board dresscode-board--alt">
+        <div className="dresscode-board__header">
+          <p className="page-eyebrow page-eyebrow--dark">Moodboard</p>
+          <h2 className="dresscode-board__title">Saturday</h2>
+          <p className="dresscode-board__sub">Joyful, Stylish &amp; Effortlessly Cool</p>
+        </div>
+        <MasonryBoard images={SAT_IMAGES} id="Saturday moodboard" />
+      </section>
+
+    </main>
+  )
+}
