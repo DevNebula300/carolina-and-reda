@@ -18,13 +18,28 @@ function ScrollToTop() {
   return null
 }
 
+function OnePageExperience() {
+  return (
+    <div>
+      <section id="home"><HomePage /></section>
+      <section id="invitation"><InvitationPage /></section>
+      <section id="program"><ProgramPage /></section>
+      <section id="accommodations"><AccommodationsPage /></section>
+      <section id="discover"><DiscoverPage /></section>
+      <section id="registry"><RegistryPage /></section>
+      <section id="dress-code"><DressCodePage /></section>
+      <section id="rsvp"><RsvpPage /></section>
+    </div>
+  )
+}
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
       <ScrollToTop />
       <Routes>
         <Route element={<Layout />}>
-          <Route index element={<HomePage />} />
+          <Route index element={<OnePageExperience />} />
           <Route path="/invitation" element={<InvitationPage />} />
           <Route path="/program" element={<ProgramPage />} />
           <Route path="/rsvp" element={<RsvpPage />} />

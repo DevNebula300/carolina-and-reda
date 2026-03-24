@@ -4,9 +4,7 @@ import { NavLink, Outlet, useLocation } from 'react-router-dom'
 const menuItems: Array<{ to: string; label: string; end?: boolean }> = [
   { to: '/rsvp', label: 'RSVP' },
   { to: '/accommodations', label: 'Accommodations' },
-  { to: '/discover-marrakech', label: 'Discover Marrakech' },
   { to: '/registry', label: 'Registry' },
-  { to: '/dress-code-moodboard', label: 'Dress Code & Moodboard' },
 ]
 
 function Layout() {
@@ -27,17 +25,24 @@ function Layout() {
   return (
     <>
       <nav className={navClass}>
-        <NavLink to="/" className="nav__brand">
-          Carolina &amp; Reda Wedding Celebration
-        </NavLink>
         <ul className="nav__menu">
-          {menuItems.map(({ to, label, end }) => (
-            <li key={to}>
-              <NavLink to={to} end={end} className={({ isActive }) => (isActive ? 'active' : '')}>
-                {label}
-              </NavLink>
-            </li>
-          ))}
+          {isHome ? (
+            <>
+              <li><a href="#invitation">Invitation</a></li>
+              <li><a href="#program">Program</a></li>
+              <li><a href="#accommodations">Accommodations</a></li>
+              <li><a href="#registry">Registry</a></li>
+              <li><a href="#rsvp">RSVP</a></li>
+            </>
+          ) : (
+            menuItems.map(({ to, label, end }) => (
+              <li key={to}>
+                <NavLink to={to} end={end} className={({ isActive }) => (isActive ? 'active' : '')}>
+                  {label}
+                </NavLink>
+              </li>
+            ))
+          )}
         </ul>
       </nav>
       <Outlet />

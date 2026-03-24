@@ -800,7 +800,7 @@ a:hover {
 .dspot-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 38vh;
+  height: clamp(320px, 34vh, 390px);
   border-top: 1px solid var(--color-border-soft);
   opacity: 0;
   transform: translateY(32px);
@@ -817,6 +817,7 @@ a:hover {
 
 .dspot-row__img-wrap {
   overflow: hidden;
+  height: 100%;
 }
 
 .dspot-row__img {
@@ -835,8 +836,9 @@ a:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 2.5rem 5vw;
+  padding: 2rem 5vw;
   background: var(--color-surface);
+  height: 100%;
 }
 
 .dspot-row__num {
@@ -886,18 +888,18 @@ a:hover {
 @media (max-width: 768px) {
   .dspot-row {
     grid-template-columns: 1fr;
-    min-height: auto;
+    height: auto;
   }
 
   .dspot-row--reverse .dspot-row__img-wrap { order: 1; }
   .dspot-row--reverse .dspot-row__text     { order: 2; }
 
   .dspot-row__img-wrap {
-    height: 55vw;
+    height: 220px;
   }
 
   .dspot-row__text {
-    padding: 3rem 2rem;
+    padding: 2.2rem 1.75rem;
   }
 }
 
@@ -1204,6 +1206,10 @@ a:hover {
   color: var(--color-text);
 }
 
+.home__hero-title-nowrap {
+  white-space: nowrap;
+}
+
 .home__hero-title--tight {
   max-width: 26ch;
   margin-left: auto;
@@ -1278,7 +1284,6 @@ a:hover {
 
 .home__details-map {
   display: inline-block;
-  margin-top: 1.5rem;
   font-family: var(--font-body);
   font-size: 0.9rem;
   letter-spacing: 0.14em;
@@ -1291,6 +1296,21 @@ a:hover {
 .home__details-map:hover {
   color: var(--color-text);
   text-decoration: underline;
+}
+
+.home__details-location {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.home__details-address {
+  display: block;
+  margin-left: 0;
+  font-size: 0.98rem;
+  color: var(--color-text-muted);
 }
 
 .home__details-photo {
@@ -1796,6 +1816,10 @@ a:hover {
     grid-template-columns: 1fr;
   }
 
+  .home__details-address {
+    margin-top: 0.5rem;
+  }
+
   .discover-img-strip {
     grid-template-columns: 1fr;
     height: auto;
@@ -1808,12 +1832,41 @@ a:hover {
 }
 
 @media (max-width: 767px) {
+  html {
+    font-size: 15px;
+  }
+
   .section {
     padding: 5rem 1rem 3rem;
   }
 
   .section__heading {
     font-size: clamp(2.4rem, 8vw, 3.2rem);
+  }
+
+  .page-hero__title {
+    font-size: clamp(2.1rem, 8vw, 3rem);
+    line-height: 1.12;
+  }
+
+  .page-section-title {
+    font-size: clamp(1.8rem, 7vw, 2.3rem);
+  }
+
+  .home__hero-title {
+    font-size: clamp(2.2rem, 8.5vw, 3.25rem);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .home__hero-meta,
+  .home__details-meta {
+    font-size: 1rem;
+  }
+
+  .home__details-address {
+    font-size: 0.9rem;
+    line-height: 1.5;
   }
 
   .nav__brand {

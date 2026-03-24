@@ -3,14 +3,14 @@ import { DISCOVER_SPOTS } from './shared'
 
 const HERO_IMG = '/location/jnane%20rumi.webp'
 
-/* One image per spot — alternating layout handled via CSS */
-const SPOT_IMAGES = [
-  '/location/jnane%20rumi%203.webp',
-  '/location/jnane%20rumi%2010.webp',
-  '/location/images%207.jpeg',
-  '/location/4.webp',
-  '/location/6.webp',
-]
+const SPOT_IMAGES: Record<string, string> = {
+  'Café Bacha': '/location/Bacha.jpg',
+  'MACAAL': '/location/Macaal.jpg',
+  'Royal Mansour': '/location/royal%20mansour.webp',
+  'YSL Museum': '/location/YSL.webp',
+  'Boutique X': '/location/4.webp',
+  'Boutique Y': '/location/6.webp',
+}
 
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null)
@@ -103,7 +103,7 @@ export function DiscoverPage() {
             name={name}
             desc={desc}
             url={url}
-            image={SPOT_IMAGES[i]}
+            image={SPOT_IMAGES[name] ?? '/location/jnane%20rumi%203.webp'}
             reverse={i % 2 !== 0}
             index={i}
           />

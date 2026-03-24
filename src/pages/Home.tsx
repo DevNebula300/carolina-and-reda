@@ -17,9 +17,10 @@ export function HomePage() {
         <div className="section__overlay" />
         <div className="home__hero-inner">
           <p className="home__eyebrow">You're invited to</p>
-          <h1 className="home__hero-title">Carolina &amp; Reda's<br />Wedding Celebration</h1>
-          <p className="home__hero-meta">Jnane Rumi, Marrakech</p>
-          <p className="home__hero-meta">26–27 June 2026</p>
+          <h1 className="home__hero-title">
+            Carolina and Reda&apos;s<br />
+            <span className="home__hero-title-nowrap">Wedding Celebration</span>
+          </h1>
         </div>
       </section>
 
@@ -28,12 +29,16 @@ export function HomePage() {
         <div className="home__details-inner">
           <div className="home__details-grid">
             <div className="home__details-text">
-              <p className="home__details-title">Join us for a weekend of celebration</p>
+              <p className="home__details-meta">26-27 June 2026</p>
               <p className="home__details-meta">Jnane Rumi, Marrakech</p>
-              <p className="home__details-meta">26–27 June 2026</p>
-              <a className="home__details-map" href={MAPS_URL} target="_blank" rel="noopener noreferrer">
-                View on Google Maps ↗
-              </a>
+              <div className="home__details-location">
+                <a className="home__details-map" href={MAPS_URL} target="_blank" rel="noopener noreferrer">
+                  View on Google Maps ↗
+                </a>
+                <span className="home__details-address">
+                  Rue Asasoussane Mejjat 2, Palmeraie, Marrakech
+                </span>
+              </div>
             </div>
             <div className="home__details-photo" aria-hidden="true">
               <img
@@ -57,13 +62,13 @@ export function HomePage() {
               <h3 className="home__program-date">Friday, 26 June</h3>
               <p className="home__program-title">Moroccan Wedding</p>
               <p className="home__program-place">Jnane Rumi</p>
-              <p className="home__program-time">20:00 Welcome</p>
+              <p className="home__program-time">20:00</p>
             </div>
             <div className="home__program-card">
               <h3 className="home__program-date">Saturday, 27 June</h3>
               <p className="home__program-title">Love Celebration</p>
               <p className="home__program-place">Jnane Rumi</p>
-              <p className="home__program-time">18:00 Welcome</p>
+              <p className="home__program-time">18:00</p>
             </div>
           </div>
         </div>

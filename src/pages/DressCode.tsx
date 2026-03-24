@@ -50,15 +50,10 @@ export function DressCodePage() {
         <div className="dresscode-intro__inner">
           <p className="page-eyebrow page-eyebrow--dark">Dress Code &amp; Moodboard</p>
           <h1 className="dresscode-intro__title">Bring your magic</h1>
-          <p className="dresscode-intro__body">
-            A little inspiration to bring you into the magic of Marrakech. This celebration is a
-            space to have fun, play and express yourself. Our vision is to create an atmosphere
-            full of colour and authenticity.
-          </p>
           <div className="dresscode-intro__days">
             <div className="dresscode-intro__day">
               <span className="dresscode-intro__day-label">Friday</span>
-              <span className="dresscode-intro__day-desc">The wedding day — traditional and elegant.</span>
+              <span className="dresscode-intro__day-desc">Black Tie</span>
             </div>
             <div className="dresscode-intro__divider" />
             <div className="dresscode-intro__day">
@@ -74,9 +69,8 @@ export function DressCodePage() {
         <div className="dresscode-board__header">
           <p className="page-eyebrow page-eyebrow--dark">Moodboard</p>
           <h2 className="dresscode-board__title">Friday</h2>
-          <p className="dresscode-board__sub">Traditional &amp; Elegant</p>
+          <p className="dresscode-board__sub">Black Tie</p>
         </div>
-        <MasonryBoard images={SAT_IMAGES} id="Friday moodboard" />
       </section>
 
       {/* ── SATURDAY MOODBOARD ── */}
@@ -84,7 +78,6 @@ export function DressCodePage() {
         <div className="dresscode-board__header">
           <p className="page-eyebrow page-eyebrow--dark">Moodboard</p>
           <h2 className="dresscode-board__title">Saturday</h2>
-          <p className="dresscode-board__sub">Joyful, Stylish &amp; Effortlessly Cool</p>
         </div>
         <MasonryBoard images={SAT_IMAGES} id="Saturday moodboard" />
       </section>
