@@ -22,13 +22,11 @@ function OnePageExperience() {
   return (
     <div>
       <section id="home"><HomePage /></section>
-      <section id="invitation"><InvitationPage /></section>
-      <section id="program"><ProgramPage /></section>
+      <section id="rsvp"><RsvpPage /></section>
       <section id="accommodations"><AccommodationsPage /></section>
       <section id="discover"><DiscoverPage /></section>
       <section id="registry"><RegistryPage /></section>
       <section id="dress-code"><DressCodePage /></section>
-      <section id="rsvp"><RsvpPage /></section>
     </div>
   )
 }

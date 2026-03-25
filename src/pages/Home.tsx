@@ -1,6 +1,6 @@
-const HERO_IMAGE = '/images/Image%201.jpg'
+const HERO_IMAGE = '/images/Image%203.jpg'
 const PROGRAM_BG = '/location/jnane%20rumi%203.webp'
-const COUPLE_PHOTO = '/images/Image%203.jpg'
+//const COUPLE_PHOTO = '/images/Image%201.jpg'
 
 const MAPS_URL =
   'https://www.google.com/maps?gs_lcrp=EgZjaHJvbWUqCQgBEAAYDRiABDIGCAAQRRg5MgkIARAAGA0YgAQyCQgCEAAYDRiABDIJCAMQABgNGIAEMgkIBBAAGA0YgAQyCQgFEAAYDRiABDIJCAYQABgNGIAEMgYIBxBFGDzSAQg0NDA0ajBqN6gCALACAA&um=1&ie=UTF-8&fb=1&gl=it&sa=X&geocode=KWs6tncA7a8NMXQsDun6Vjpu&daddr=M24H%2BGVW,+Rue+Assawssan,+Marrakech,+Morocco'
@@ -75,7 +75,7 @@ export function HomePage() {
       </section>
 
       {/* ── COUPLE PHOTO ── */}
-      <section className="home__couple" aria-label="Carolina and Reda photo">
+      {/* <section className="home__couple" aria-label="Carolina and Reda photo">
         <div className="home__couple-inner">
           <img
             className="home__couple-img"
@@ -85,7 +85,7 @@ export function HomePage() {
             decoding="async"
           />
         </div>
-      </section>
+      </section> */}
 
     </main>
   )

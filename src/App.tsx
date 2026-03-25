@@ -28,11 +28,9 @@ function Layout() {
         <ul className="nav__menu">
           {isHome ? (
             <>
-              <li><a href="#invitation">Invitation</a></li>
-              <li><a href="#program">Program</a></li>
-              <li><a href="#accommodations">Accommodations</a></li>
-              <li><a href="#registry">Registry</a></li>
               <li><a href="#rsvp">RSVP</a></li>
+              <li><a href="#accommodations">Accommodations</a></li>
+              <li><a href="#registry">Registry</a></li>     
             </>
           ) : (
             menuItems.map(({ to, label, end }) => (
