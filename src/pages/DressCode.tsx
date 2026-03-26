@@ -48,8 +48,7 @@ export function DressCodePage() {
       {/* ── INTRO ── */}
       <section className="dresscode-intro">
         <div className="dresscode-intro__inner">
-          <p className="page-eyebrow page-eyebrow--dark">Dress Code &amp; Moodboard</p>
-          <h1 className="dresscode-intro__title">Bring your magic</h1>
+          <h1 className="dresscode-intro__title">Dress Code</h1>
           <div className="dresscode-intro__days">
             <div className="dresscode-intro__day">
               <span className="dresscode-intro__day-label">Friday</span>
@@ -58,18 +57,9 @@ export function DressCodePage() {
             <div className="dresscode-intro__divider" />
             <div className="dresscode-intro__day">
               <span className="dresscode-intro__day-label">Saturday</span>
-              <span className="dresscode-intro__day-desc">A celebration of love — joyful, stylish and effortlessly cool.</span>
+              <span className="dresscode-intro__day-desc">Garden chic</span>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* ── FRIDAY MOODBOARD ── */}
-      <section className="dresscode-board">
-        <div className="dresscode-board__header">
-          <p className="page-eyebrow page-eyebrow--dark">Moodboard</p>
-          <h2 className="dresscode-board__title">Friday</h2>
-          <p className="dresscode-board__sub">Black Tie</p>
         </div>
       </section>
 

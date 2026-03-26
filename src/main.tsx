@@ -26,6 +26,13 @@ function OnePageExperience() {
       <section id="accommodations"><AccommodationsPage /></section>
       <section id="discover"><DiscoverPage /></section>
       <section id="registry"><RegistryPage /></section>
+      <section id="contact-us" className="page-banner">
+        <div className="page-banner__inner">
+          <h2 className="page-banner__title">Contact Us</h2>
+          <p className="page-banner__body">Anything else? Contact us here</p>
+          <p className="page-body page-body--centered">email.placeholder</p>
+        </div>
+      </section>
       <section id="dress-code"><DressCodePage /></section>
     </div>
   )

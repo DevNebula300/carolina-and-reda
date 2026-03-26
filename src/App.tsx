@@ -31,6 +31,7 @@ function Layout() {
               <li><a href="#rsvp">RSVP</a></li>
               <li><a href="#accommodations">Accommodations</a></li>
               <li><a href="#registry">Registry</a></li>     
+              <li><a href="#contact-us">Contact Us</a></li>
             </>
           ) : (
             menuItems.map(({ to, label, end }) => (
@@ -41,6 +42,7 @@ function Layout() {
               </li>
             ))
           )}
+          <li><a href={isHome ? '#home' : '/'}>Return to menu</a></li>
         </ul>
       </nav>
       <Outlet />
