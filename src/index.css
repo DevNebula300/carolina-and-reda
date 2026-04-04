@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Tesla';
+  src: url('/fonts/Tesla.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* Light theme */
   --color-bg: #fbf7f2;
@@ -11,6 +19,8 @@
   --color-overlay: rgba(0, 0, 0, 0.38);
   --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-body: 'Outfit', system-ui, sans-serif;
+  /* Hero image title — local font in public/fonts */
+  --font-hero-title: 'Tesla', var(--font-display);
 }
 
 *,
@@ -73,7 +83,9 @@ a:hover {
 .section--bg > .page-hero__inner,
 .section--bg > .page-hero__inner *,
 .home__hero .home__hero-inner,
-.home__hero .home__hero-inner * {
+.home__hero .home__hero-inner *,
+.home__details.section--bg .home__details-inner,
+.home__details.section--bg .home__details-inner * {
   color: #fff;
 }
 
@@ -164,6 +176,14 @@ a:hover {
   text-align: center;
   margin-bottom: 0.75rem;
   letter-spacing: 0.05em;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.nav__brand:hover {
+  opacity: 1;
+  text-decoration: underline;
 }
 
 .nav__menu {
@@ -580,6 +600,10 @@ a:hover {
   margin: 0 0 2rem;
 }
 
+.page-banner__contact-email {
+  margin-bottom: 0;
+}
+
 /* CENTRED section */
 .page-centred {
   /* top padding clears the fixed nav (~88px) + generous breathing room */
@@ -664,14 +688,45 @@ a:hover {
 }
 
 /* HOTEL LIST */
+.page-hotel-groups {
+  margin-top: 2rem;
+  text-align: left;
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-hotel-group {
+  margin-top: 2.25rem;
+}
+
+.page-hotel-group:first-child {
+  margin-top: 0;
+}
+
+.page-hotel-group-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0 0 0.35rem;
+  line-height: 1.25;
+}
+
 .page-hotel-list {
   list-style: none;
-  margin: 1.5rem 0 2rem;
+  margin: 0 0 0.5rem;
   padding: 0;
 }
 
 .page-hotel-item {
   border-bottom: 1px solid var(--color-border);
+}
+
+.page-hotel-row {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
 }
 
 .page-hotel-link {
@@ -951,6 +1006,11 @@ a:hover {
   margin-top: 2.25rem;
 }
 
+/* Registry photo: couple sits low in the frame; anchor to bottom so `cover` crops sky above, not faces below */
+.rsvp-hero--registry.section--bg {
+  background-position: center;
+}
+
 .rsvp-btn {
   background: rgba(255,255,255,0.95);
   color: #141210;
@@ -1190,25 +1250,13 @@ a:hover {
   max-width: 54rem;
 }
 
-.home__eyebrow {
-  font-family: var(--font-body);
-  font-size: 0.82rem;
-  font-weight: 400;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(245, 240, 235, 0.65);
-  margin: 0 0 0.75rem;
-}
-
-.home__eyebrow--center { text-align: center; }
-
 .home__hero-title {
-  font-family: var(--font-display);
+  font-family: var(--font-hero-title);
   font-size: clamp(3rem, 7.5vw, 5.8rem);
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.06;
   margin: 0 0 1.5rem;
-  color: var(--color-text);
+  color: #fff;
 }
 
 .home__hero-title-nowrap {
@@ -1247,60 +1295,54 @@ a:hover {
   text-decoration: underline;
 }
 
-/* ── HOME DETAILS (3 lines + map link) ── */
+/* ── HOME DETAILS (date + address over full-bleed image) ── */
 .home__details {
-  background: var(--color-bg);
-  padding: 5.5rem 5vw;
-  border-top: 1px solid var(--color-border-soft);
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 5vw;
   border-bottom: 1px solid var(--color-border-soft);
 }
 
-.home__details-inner {
-  max-width: 72rem;
-  margin: 0 auto;
+.home__details.section--bg {
+  background-attachment: local;
 }
 
-.home__details-grid {
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: clamp(1.5rem, 3.5vw, 3rem);
-  align-items: center;
+.home__details-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 42rem;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .home__details-text {
   text-align: center;
 }
 
-.home__details-title {
-  font-family: var(--font-display);
-  font-size: clamp(1.8rem, 4vw, 3rem);
-  font-weight: 500;
-  color: var(--color-text);
-  margin: 0 0 1rem;
-  line-height: 1.15;
-}
-
 .home__details-meta {
   font-family: var(--font-display);
   font-size: clamp(1.35rem, 2.6vw, 1.8rem);
-  color: var(--color-text);
   margin: 0.25rem 0;
   line-height: 1.2;
 }
 
-.home__details-map {
+.home__details.section--bg .home__details-map {
   display: inline-block;
   font-family: var(--font-body);
   font-size: 0.9rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: underline;
   text-underline-offset: 4px;
 }
 
-.home__details-map:hover {
-  color: var(--color-text);
+.home__details.section--bg .home__details-map:hover {
+  color: #fff;
   text-decoration: underline;
 }
 
@@ -1312,28 +1354,11 @@ a:hover {
   gap: 0.45rem;
 }
 
-.home__details-address {
+.home__details.section--bg .home__details-address {
   display: block;
   margin-left: 0;
   font-size: 0.98rem;
-  color: var(--color-text-muted);
-}
-
-.home__details-photo {
-  display: flex;
-  justify-content: center;
-}
-
-.home__details-photo-img {
-  width: min(900px, 100%);
-  height: auto;
-  display: block;
-  border-radius: 14px;
-  box-shadow:
-    0 18px 40px rgba(0, 0, 0, 0.12),
-    0 2px 10px rgba(0, 0, 0, 0.08);
-  /* Avoid accidental blur from transforms/filters on ancestors */
-  transform: translateZ(0);
+  color: rgba(255, 255, 255, 0.72);
 }
 
 /* used in program section map link */
@@ -1482,10 +1507,51 @@ a:hover {
   margin: 0;
 }
 
+/* ── HOME INVITATION CARDS ── */
+.home__invitation {
+  background: var(--color-bg);
+  padding: 5rem 5vw 4rem;
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.home__invitation-inner {
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+.home__invitation-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.25rem, 3vw, 2rem);
+  align-items: stretch;
+}
+
+.home__invitation-figure {
+  margin: 0;
+  width: 100%;
+  /* Same frame for both cards; images scale inside without cropping */
+  height: clamp(280px, min(48vw, 58vh), 540px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  overflow: hidden;
+}
+
+.home__invitation-img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
 /* ── HOME WEEKEND PROGRAM ── */
 .home__program {
   background: var(--color-bg);
-  padding: 6rem 5vw 0;
+  padding: 4rem 5vw 0;
   text-align: center;
 }
 
@@ -1515,14 +1581,39 @@ a:hover {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   padding: 2.5rem 2rem;
+  text-align: left;
 }
 
 .home__program-date {
   font-family: var(--font-display);
-  font-size: 1.55rem;
+  font-size: 1.45rem;
   font-weight: 500;
   color: var(--color-text);
-  margin: 0 0 0.85rem;
+  margin: 0 0 1.1rem;
+  line-height: 1.25;
+}
+
+.home__program-schedule {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.home__program-schedule li {
+  position: relative;
+  padding-left: 1.15rem;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+}
+
+.home__program-schedule li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+  font-weight: 600;
 }
 
 .home__program-title {
@@ -1818,12 +1909,12 @@ a:hover {
     grid-template-columns: 1fr;
   }
 
-  .home__details-grid {
+  .home__invitation-grid {
     grid-template-columns: 1fr;
   }
 
-  .home__details-address {
-    margin-top: 0.5rem;
+  .home__invitation-figure {
+    height: clamp(260px, 52vw, 500px);
   }
 
   .discover-img-strip {
@@ -1870,7 +1961,7 @@ a:hover {
     font-size: 1.2rem;
   }
 
-  .home__details-address {
+  .home__details.section--bg .home__details-address {
     font-size: 0.9rem;
     line-height: 1.5;
   }

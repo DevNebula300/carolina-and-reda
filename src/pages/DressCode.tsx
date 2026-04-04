@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 
-// Both moodboards use the Saturday images for now — Friday images to be added later
-const SAT_IMAGES = Array.from({ length: 21 }, (_, i) => `/saturday/s${i + 1}.jpg`)
+// Saturday moodboard: ss1.jpg … ss26.jpg in order
+const SAT_IMAGES = Array.from({ length: 26 }, (_, i) => `/saturday/ss${i + 1}.jpg`)
 
 function MasonryBoard({ images, id }: { images: string[]; id: string }) {
   const ref = useRef<HTMLDivElement>(null)
@@ -52,12 +52,12 @@ export function DressCodePage() {
           <div className="dresscode-intro__days">
             <div className="dresscode-intro__day">
               <span className="dresscode-intro__day-label">Friday</span>
-              <span className="dresscode-intro__day-desc">Black Tie</span>
+              <span className="dresscode-intro__day-desc">Formal</span>
             </div>
             <div className="dresscode-intro__divider" />
             <div className="dresscode-intro__day">
               <span className="dresscode-intro__day-label">Saturday</span>
-              <span className="dresscode-intro__day-desc">Garden chic</span>
+              <span className="dresscode-intro__day-desc">Cocktail Attire</span>
             </div>
           </div>
         </div>

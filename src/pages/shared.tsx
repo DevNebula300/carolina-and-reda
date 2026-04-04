@@ -13,43 +13,82 @@ export const MAP_LINK = 'https://maps.google.com/?q=Jnane+Rumi+Marrakech' // pla
 export const RSVP_LINK = '#'
 export const ADD_TO_CALENDAR_LINK = '#'
 
-export const ACCOMMODATIONS = [
-  { name: 'Jnane Tamsna', url: 'https://www.google.com/search?q=Jnane+Tamsna+Marrakech' },
-  { name: 'Hotel Riu Tikida Palmeraie', url: 'https://www.google.com/search?q=Hotel+Riu+Tikida+Palmeraie+Marrakech' },
-  { name: 'Bliss Terra Janna', url: 'https://www.google.com/search?q=bliss+terra+janna&oq=Bliss+Terra+Janna&gs_lcrp=EgZjaHJvbWUqBwgAEAAYgAQyBwgAEAAYgAQyCAgBEAAYFhgeMggIAhAAGBYYHjIICAMQABgWGB4yCAgEEAAYFhgeMgYIBRBFGDwyBggGEEUYPDIGCAcQRRg80gEHNzU3ajBqNKgCAbACAfEFrvMuK4BKVW4&sourceid=chrome&ie=UTF-8' },
-  { name: 'Palais Ronsard Relais & Châteaux', url: 'https://www.google.com/search?q=Palais+Ronsard+Relais+%26+Ch%C3%A2teaux+Marrakech' },
-  { name: 'Palais Namaskar', url: 'https://www.google.com/search?q=palais+namaskar&oq=Palais+Namaskar&gs_lcrp=EgZjaHJvbWUqBwgAEAAYgAQyBwgAEAAYgAQyBwgBEAAYgAQyBggCEAAYQDIHCAMQABiABDIHCAQQABiABDIGCAUQRRg8MgYIBhBFGDwyBggHEEUYPNIBBzIzM2owajSoAgGwAgHxBU0CGXTGORZT&sourceid=chrome&ie=UTF-8' },
-  { name: 'Les Deux Tours', url: 'https://www.google.com/search?q=Les+Deux+Tours+Marrakech' },
-  { name: 'Les Palmiers Boutique Hôtel & Spa', url: 'https://www.google.com/search?q=les+palmiers+boutique+hotel+and+spa&oq=Les+Palmiers+Boutique+Hotel+and+Spa&gs_lcrp=EgZjaHJvbWUqBwgAEAAYgAQyBwgAEAAYgAQyCAgBEAAYFhgeMggIAhAAGBYYHjIICAMQABgWGB4yCAgEEAAYFhgeMggIBRAAGBYYHjIICAYQABgWGB4yCAgHEAAYFhgeMggICBAAGBYYHjIICAkQABgWGB7SAQczMzBqMGo5qAIAsAIA&sourceid=chrome&ie=UTF-8' },
-  { name: 'Dar Sabra', url: 'https://www.google.com/search?q=Dar+Sabra+Marrakech' },
+export type AccommodationItem = { name: string; url?: string }
+
+export type AccommodationGroup = { title: string; items: AccommodationItem[] }
+
+export const ACCOMMODATION_GROUPS: AccommodationGroup[] = [
+  {
+    title: 'Hotels in La Palmeraie',
+    items: [
+      { name: 'Jnane Tamsna' },
+      { name: 'Palais Ronsard' },
+      { name: 'Les Deux Tours' },
+      { name: 'Bliss Terra Janna' },
+      { name: 'Palais Namaskar' },
+      { name: 'Les Palmiers Boutique Hôtel & Spa' },
+      { name: 'Hotel Pavillon du Golf Palmeraie' },
+    ],
+  },
+  {
+    title: 'Hotels in Marrakech',
+    items: [
+      { name: 'Hotel Selman', url: 'https://www.selman-marrakech.com/' },
+      { name: 'Hotel Mamounia', url: 'https://mamounia.com/fr/' },
+      { name: "Hotel L'hivernage", url: 'https://www.hivernage-hotel.com/' },
+      { name: 'CR7 Pestana' },
+    ],
+  },
+  {
+    title: 'Hotels in Marrakech',
+    items: [
+      { name: 'El fen', url: 'https://el-fenn.com/' },
+      { name: 'Yasmine', url: 'https://www.riad-yasmine.com/fr/' },
+      { name: 'Jardin secret', url: 'https://www.riadjardinsecret.com/' },
+    ],
+  },
 ]
 
 export const DISCOVER_SPOTS = [
   {
     name: 'Café Bacha',
-    desc: 'For a brunch that is truly an experience (and high coffee intake).',
+    desc: 'For a brunch that is truly an experience.',
     url: 'https://www.google.com/search?q=Caf%C3%A9+Bacha+Marrakech',
+  },
+  {
+    name: 'Jardin Majorelle',
+    desc: 'A botanical and artist-inspired landscape garden.',
+    url: 'https://www.jardinmajorelle.com/',
+  },
+  {
+    name: 'YSL Museum',
+    desc: 'Yves Saint Laurent Museum. Be inspired by the YSL years in Marrakech.',
+    url: 'https://www.museeyslmarrakech.com/',
   },
   {
     name: 'MACAAL',
     desc: 'For contemporary African art.',
-    url: 'https://www.google.com/search?q=MACAAL+Marrakech',
+    url: 'https://www.macaal.org/',
   },
   {
     name: 'Royal Mansour',
-    desc: 'For a touch of magic. Stop in for a drink or treat yourself to the spa.',
-    url: 'https://www.google.com/search?q=Royal+Mansour+Marrakech',
+    desc: 'For a touch of Marrakech magic, stop by for a drink or spa treatment.',
+    url: 'https://www.royalmansour.com/',
   },
   {
-    name: 'YSL Museum',
-    desc: 'To be inspired by the YSL years in Marrakech.',
-    url: 'https://www.google.com/search?q=YSL+Museum+Marrakech',
+    name: 'Kabana Rooftop',
+    desc: 'For a lunch in the medina',
+    url: 'https://www.kabana-marrakech.com/',
   },
-  { name: 'Boutique X', desc: 'For shopping.', url: 'https://www.google.com/search?q=boutique+shopping+Marrakech' },
   {
-    name: 'Boutique Y',
-    desc: 'To find a traditional Moroccan dress and accessories for Friday.',
-    url: 'https://www.google.com/search?q=traditional+Moroccan+dress+Marrakech+boutique',
+    name: 'Les Jardins du Lotus',
+    desc: 'One of our favourite dinner spots',
+    url: 'https://www.google.com/search?q=Les+Jardins+du+Lotus+Marrakech',
+  },
+  {
+    name: 'Baromètre',
+    desc: 'Mixology, cuisine & time travel. For chats and signature cocktails.',
+    url: 'https://www.google.com/search?q=Barom%C3%A8tre+Marrakech',
   },
 ]
 

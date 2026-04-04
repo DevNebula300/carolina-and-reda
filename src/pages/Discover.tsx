@@ -5,11 +5,13 @@ const HERO_IMG = '/location/jnane%20rumi.webp'
 
 const SPOT_IMAGES: Record<string, string> = {
   'Café Bacha': '/location/Bacha.jpg',
+  'Jardin Majorelle': '/location/jardin.jpg',
+  'YSL Museum': '/location/YSL.webp',
   'MACAAL': '/location/Macaal.jpg',
   'Royal Mansour': '/location/royal%20mansour.webp',
-  'YSL Museum': '/location/YSL.webp',
-  'Boutique X': '/location/4.webp',
-  'Boutique Y': '/location/6.webp',
+  'Kabana Rooftop': '/location/kabana.png',
+  'Les Jardins du Lotus': '/location/images%207.jpeg',
+  'Baromètre': '/location/bar.jpg',
 }
 
 function useReveal() {
@@ -66,13 +68,10 @@ export function DiscoverPage() {
       >
         <div className="section__overlay" style={{ background: 'rgba(0,0,0,0.45)' }} />
         <div className="page-hero__inner">
+         
+          <h1 className="page-hero__title" style={{ color: '#fff' }}>Discover<br />Marrakech</h1>
           <p className="page-eyebrow" style={{ color: 'rgba(255,255,255,0.75)', letterSpacing: '0.2em' }}>
             The city where we first met
-          </p>
-          <h1 className="page-hero__title" style={{ color: '#fff' }}>Discover<br />Marrakech</h1>
-          <p className="page-hero__sub" style={{ color: 'rgba(255,255,255,0.8)' }}>
-            A place best discovered through a lover's heart. Its hidden corners and quiet magic
-            have so much to offer. We hope it brings you memories as special as the ones it has given us.
           </p>
         </div>
       </section>

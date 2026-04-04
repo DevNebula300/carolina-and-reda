@@ -1,10 +1,10 @@
-const BG_IMAGE = '/registry.JPG'
+const BG_IMAGE = '/images/reg.jpg'
 
 export function RegistryPage() {
   return (
     <main>
       <section
-        className="rsvp-hero section--bg"
+        className="rsvp-hero rsvp-hero--registry section--bg"
         style={{ backgroundImage: `url(${BG_IMAGE})` }}
       >
         <div className="section__overlay" style={{ background: 'rgba(0,0,0,0.48)' }} />
