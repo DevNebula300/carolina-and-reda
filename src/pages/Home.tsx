@@ -1,8 +1,6 @@
 const HERO_IMAGE = '/images/Image%203.jpg'
 const PROGRAM_BG = '/location/jnane%20rumi%203.webp'
 
-const INVITATION_FRIDAY = `/invitation/${encodeURIComponent('1. Friday card.png')}`
-const INVITATION_SATURDAY_IMG = `/invitation/${encodeURIComponent('2. Saturday card.png')}`
 //const COUPLE_PHOTO = '/images/Image%201.jpg'
 
 const MAPS_URL =
@@ -19,9 +17,8 @@ export function HomePage() {
       >
         <div className="section__overlay" />
         <div className="home__hero-inner">
-          <h1 className="home__hero-title">
-            Carolina & Reda Love Celebration
-          </h1>
+          <h1 className="home__hero-title">Carolina & Reda</h1>
+          <p className="home__hero-date">26-27 June 2026</p>
         </div>
       </section>
 
@@ -33,7 +30,7 @@ export function HomePage() {
         <div className="section__overlay" />
         <div className="home__details-inner">
           <div className="home__details-text">
-            <p className="home__details-meta">26-27 June 2026</p>
+            <h2 className="home__details-title">Location</h2>
             <p className="home__details-meta">Jnane Rumi, Marrakech</p>
             <div className="home__details-location">
               <a className="home__details-map" href={MAPS_URL} target="_blank" rel="noopener noreferrer">
@@ -42,58 +39,6 @@ export function HomePage() {
               <span className="home__details-address">
                 Rue Asasoussane Mejjat 2, Palmeraie, Marrakech
               </span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── INVITATION CARDS ── */}
-      <section className="home__invitation" aria-label="Weekend invitations">
-        <div className="home__invitation-inner">
-          <div className="home__invitation-grid">
-            <figure className="home__invitation-figure">
-              <img
-                className="home__invitation-img"
-                src={INVITATION_FRIDAY}
-                alt="Friday invitation"
-                loading="lazy"
-                decoding="async"
-              />
-            </figure>
-            <figure className="home__invitation-figure">
-              <img
-                className="home__invitation-img"
-                src={INVITATION_SATURDAY_IMG}
-                alt="Saturday invitation"
-                loading="lazy"
-                decoding="async"
-              />
-            </figure>
-          </div>
-        </div>
-      </section>
-
-      {/* ── THE WEEKEND PROGRAM ── */}
-      <section className="home__program">
-        <div className="home__program-inner">
-          <p className="home__program-kicker">THE WEEKEND PROGRAM</p>
-          <div className="home__program-grid">
-            <div className="home__program-card">
-              <h3 className="home__program-date">FRIDAY — Moroccan Wedding</h3>
-              <ul className="home__program-schedule">
-                <li>19:30 Guest transfers</li>
-                <li>20:00 Celebration begins</li>
-              </ul>
-            </div>
-            <div className="home__program-card">
-              <h3 className="home__program-date">SATURDAY — Love Celebration</h3>
-              <ul className="home__program-schedule">
-                <li>18:00 Guest transfers</li>
-                <li>18:30 Welcome drinks</li>
-                <li>19:30 Ceremony</li>
-                <li>21:00 Dinner</li>
-                <li>23:00 Party</li>
-              </ul>
             </div>
           </div>
         </div>

@@ -41,13 +41,17 @@ export function RsvpPage() {
       >
         <div className="section__overlay" style={{ background: 'rgba(0,0,0,0.48)' }} />
         <div className="rsvp-hero__inner">
-          <h1 className="rsvp-hero__title">We can't wait to celebrate with you!</h1>
+          <h1 className="rsvp-hero__title rsvp-hero__title--legacy">We can't wait to celebrate with you!</h1>
           <p className="rsvp-hero__body">Please let us know if you are able to attend.</p>
-          <p className="rsvp-hero__body">
-            Click below to confirm your attendance and add the event to your calendar.
-          </p>
           <div className="rsvp-hero__btns">
-            <a href={RSVP_LINK} className="btn rsvp-btn">RSVP</a>
+            <a
+              href={RSVP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn rsvp-btn"
+            >
+              RSVP
+            </a>
             <button type="button" className="btn rsvp-btn rsvp-btn--outline" onClick={downloadIcs}>
               Add to calendar
             </button>

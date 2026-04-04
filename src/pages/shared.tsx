@@ -10,7 +10,7 @@ export const REGISTRY_BG = 'registry.JPG'
 export const DRESSCODE_BG = '/images/Image%207.jpg'
 
 export const MAP_LINK = 'https://maps.google.com/?q=Jnane+Rumi+Marrakech' // placeholder
-export const RSVP_LINK = '#'
+export const RSVP_LINK = 'https://partiful.com/e/OjcXJQAjaLlHmtFaceLU?'
 export const ADD_TO_CALENDAR_LINK = '#'
 
 export type AccommodationItem = { name: string; url?: string }

@@ -22,6 +22,7 @@ function OnePageExperience() {
   return (
     <div>
       <section id="home"><HomePage /></section>
+      <section id="invitation"><InvitationPage /></section>
       <section id="rsvp"><RsvpPage /></section>
       <section id="accommodations"><AccommodationsPage /></section>
       <section id="discover"><DiscoverPage /></section>
@@ -34,6 +35,15 @@ function OnePageExperience() {
             <a href="mailto:wardalynn@studiomaev.com">wardalynn@studiomaev.com</a>
           </p>
         </div>
+      </section>
+      <section id="moodboard-strip" className="moodboard-strip" aria-label="Moodboard">
+        <img
+          src="/moodboard.png"
+          alt=""
+          className="moodboard-strip__img"
+          loading="lazy"
+          decoding="async"
+        />
       </section>
       <section id="dress-code"><DressCodePage /></section>
     </div>

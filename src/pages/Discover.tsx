@@ -68,11 +68,8 @@ export function DiscoverPage() {
       >
         <div className="section__overlay" style={{ background: 'rgba(0,0,0,0.45)' }} />
         <div className="page-hero__inner">
-         
-          <h1 className="page-hero__title" style={{ color: '#fff' }}>Discover<br />Marrakech</h1>
-          <p className="page-eyebrow" style={{ color: 'rgba(255,255,255,0.75)', letterSpacing: '0.2em' }}>
-            The city where we first met
-          </p>
+          <h1 className="page-hero__title">Discover<br />Marrakech</h1>
+          <p className="page-hero__sub">The city where we first met</p>
         </div>
       </section>
 
@@ -93,7 +90,7 @@ export function DiscoverPage() {
       <section className="dspot-section">
         <div className="dspot-section__header">
           <p className="page-eyebrow page-eyebrow--dark">Our favourites</p>
-          <h2 className="page-section-title">A few of our favourite spots</h2>
+          <h2 className="page-section-title page-section-title--legacy">A few of our favourite spots</h2>
         </div>
 
         {DISCOVER_SPOTS.map(({ name, desc, url }, i) => (
