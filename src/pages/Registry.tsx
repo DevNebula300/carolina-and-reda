@@ -1,4 +1,4 @@
-const BG_IMAGE = '/images/reg.jpg'
+const BG_IMAGE = '/reg.jpg'
 
 export function RegistryPage() {
   return (
