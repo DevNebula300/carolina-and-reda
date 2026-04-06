@@ -89,8 +89,7 @@ export function DiscoverPage() {
       {/* ── SPOTS — alternating image + text rows ── */}
       <section className="dspot-section">
         <div className="dspot-section__header">
-          <p className="page-eyebrow page-eyebrow--dark">Our favourites</p>
-          <h2 className="page-section-title page-section-title--legacy">A few of our favourite spots</h2>
+          <h2 className="page-section-title">Our favourites</h2>
         </div>
 
         {DISCOVER_SPOTS.map(({ name, desc, url }, i) => (

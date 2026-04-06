@@ -317,7 +317,6 @@ a:hover {
 }
 
 .dresscode-intro__title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
   margin: 0.5rem 0 1.25rem;
 }
 
@@ -403,7 +402,7 @@ a:hover {
 }
 
 .dresscode-board__title {
-  font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+  font-size: clamp(1rem, 1.75vw, 1.35rem);
   line-height: 1.25;
   margin: 0.75rem 0 0.4rem;
 }
@@ -548,8 +547,6 @@ a:hover {
 }
 
 .page-hero__title {
-  font-size: clamp(2rem, 5vw, 3.25rem);
-  line-height: 1.15;
   margin: 0.5rem 0 1.25rem;
 }
 
@@ -587,9 +584,23 @@ a:hover {
 .page-hotel-group-title {
   font-family: var(--font-body);
   font-weight: 300;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-accent);
+}
+
+/* Primary section headings — one shared size (excludes dresscode-board__subtitle) */
+.page-hero__title,
+.page-section-title,
+.page-banner__title,
+.dresscode-intro__title,
+.rsvp-hero__title,
+.inv-page__title,
+.home__details-title,
+.page-centred .page-section-title,
+.page-hotel-group-title {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  line-height: 1.15;
 }
 
 /* Hero titles on dark image: bronze (overrides section--bg white text on children) */
@@ -645,8 +656,6 @@ a:hover {
 }
 
 .page-section-title {
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.15;
   margin: 0 0 1rem;
 }
 
@@ -683,7 +692,6 @@ a:hover {
 }
 
 .page-banner__title {
-  font-size: clamp(2rem, 4.5vw, 3.2rem);
   margin: 0 0 1.25rem;
 }
 
@@ -1075,12 +1083,7 @@ a:hover {
 }
 
 .rsvp-hero__title {
-  font-size: clamp(2.2rem, 5vw, 3.8rem);
-  line-height: 1.15;
   margin: 0 0 1.5rem;
-  text-transform: none;
-  letter-spacing: 0.06em;
-  font-weight: 400;
 }
 
 .rsvp-hero__title.rsvp-hero__title--legacy {
@@ -2070,10 +2073,10 @@ a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 500px;
+  max-width: 580px;
   margin: 0 auto 1.25rem;
   /* padding gives room for the rotated edges; keep bottom tight to the heading below */
-  padding: 2rem 2rem 1rem;
+  padding: 2rem 1.25rem 1rem;
   overflow: visible;
 }
 
@@ -2091,22 +2094,22 @@ a:hover {
   height: auto;
 }
 
-/* Friday card — left, tilted CCW, vertically centred with Saturday, behind */
+/* Friday card — left, tilted CCW, on top so script text stays readable */
 .inv-page__card--friday {
   width: clamp(210px, 37vw, 295px);
   transform: rotate(-7deg) translateY(-28px);
-  margin-right: -95px;
-  z-index: 1;
+  margin-right: -40px;
+  z-index: 3;
   box-shadow:
     -4px 20px 55px rgba(0, 0, 0, 0.22),
     -2px 6px 18px rgba(0, 0, 0, 0.12);
 }
 
-/* Saturday card — right, tilted CW, in front */
+/* Saturday card — right, tilted CW, sits behind Friday with lighter overlap */
 .inv-page__card--saturday {
   width: clamp(185px, 32vw, 255px);
   transform: rotate(6deg) translateY(-28px);
-  z-index: 2;
+  z-index: 1;
   box-shadow:
     4px 20px 55px rgba(0, 0, 0, 0.22),
     2px 6px 18px rgba(0, 0, 0, 0.12);
@@ -2118,13 +2121,8 @@ a:hover {
   padding-top: 0;
 }
 
+/* Spacing for invitation lines — typography from .page-section-title */
 .inv-page__program-kicker {
-  font-family: var(--font-body);
-  font-size: 0.82rem;
-  font-weight: 300;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--color-accent);
   margin: 0 0 2.25rem;
 }
 
@@ -2194,13 +2192,14 @@ a:hover {
     font-size: clamp(2.4rem, 8vw, 3.2rem);
   }
 
-  .page-hero__title {
+  .page-hero__title,
+  .page-section-title,
+  .page-banner__title,
+  .home__details-title,
+  .rsvp-hero__title,
+  .dresscode-intro__title {
     font-size: clamp(2.1rem, 8vw, 3rem);
     line-height: 1.12;
-  }
-
-  .page-section-title {
-    font-size: clamp(1.8rem, 7vw, 2.3rem);
   }
 
   .home__hero-title {
@@ -2242,7 +2241,7 @@ a:hover {
   }
 
   .inv-page__card--friday {
-    margin-right: -55px;
+    margin-right: -30px;
   }
 }
 

@@ -21,13 +21,34 @@ export const ACCOMMODATION_GROUPS: AccommodationGroup[] = [
   {
     title: 'Hotels in La Palmeraie',
     items: [
-      { name: 'Jnane Tamsna' },
-      { name: 'Palais Ronsard' },
-      { name: 'Les Deux Tours' },
-      { name: 'Bliss Terra Janna' },
-      { name: 'Palais Namaskar' },
-      { name: 'Les Palmiers Boutique Hôtel & Spa' },
-      { name: 'Hotel Pavillon du Golf Palmeraie' },
+      {
+        name: 'Jnane Tamsna',
+        url: 'https://www.google.com/search?q=Jnane+Tamsna+Marrakech',
+      },
+      {
+        name: 'Palais Ronsard',
+        url: 'https://www.google.com/search?q=Palais+Ronsard+Relais+%26+Ch%C3%A2teaux+Marrakech',
+      },
+      {
+        name: 'Les Deux Tours',
+        url: 'https://www.google.com/search?q=Les+Deux+Tours+Marrakech',
+      },
+      {
+        name: 'Bliss Terra Janna',
+        url: 'https://www.google.com/search?q=bliss+terra+janna',
+      },
+      {
+        name: 'Palais Namaskar',
+        url: 'https://www.google.com/search?q=palais+namaskar',
+      },
+      {
+        name: 'Les Palmiers Boutique Hôtel & Spa',
+        url: 'https://www.google.com/search?q=les+palmiers+boutique+hotel+and+spa',
+      },
+      {
+        name: 'Hotel Pavillon du Golf Palmeraie',
+        url: 'https://www.google.com/search?q=Hotel+Pavillon+du+Golf+Palmeraie',
+      },
     ],
   },
   {

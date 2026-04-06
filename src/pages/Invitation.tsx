@@ -7,7 +7,7 @@ export function InvitationPage() {
       <div className="inv-page__inner">
 
         {/* ── TITLE ── */}
-        <h2 className="inv-page__title inv-page__title--legacy">You're invited to</h2>
+        <p className="page-section-title inv-page__program-kicker">You're invited to</p>
 
         {/* ── INVITATION CARDS (oblique) ── */}
         <div className="inv-page__cards-scene" aria-label="Weekend invitations">
@@ -31,7 +31,7 @@ export function InvitationPage() {
 
         {/* ── WEEKEND PROGRAM ── */}
         <div className="inv-page__program">
-          <p className="inv-page__program-kicker">THE WEEKEND PROGRAM</p>
+          <p className="page-section-title inv-page__program-kicker">THE WEEKEND PROGRAM</p>
           <div className="inv-page__program-grid">
             <div className="inv-page__program-card">
               <h3 className="inv-page__program-day">FRIDAY - Moroccan Wedding</h3>
@@ -44,9 +44,7 @@ export function InvitationPage() {
               <h3 className="inv-page__program-day">SATURDAY — Love Party</h3>
               <ul className="inv-page__program-schedule">
                 <li>17:30 - Guest Transfers</li>
-                <li>18:00 - Welcome Drinks</li>
                 <li>19:00 - Ceremony Begins</li>
-                <li>21:00 - Dinner</li>
                 <li>23:00 - Party</li>
               </ul>
             </div>

@@ -64,7 +64,7 @@ export function DressCodePage() {
       {/* ── SATURDAY MOODBOARD (5 images) ── */}
       <section className="dresscode-board dresscode-board--alt">
         <div className="dresscode-board__header">
-          <p className="page-eyebrow page-eyebrow--dark">Dress Code</p>
+          <h2 className="page-section-title">Dress Code</h2>
           <div className="dresscode-intro__days dresscode-intro__days--stacked">
             <div className="dresscode-intro__day">
               <span className="dresscode-intro__day-label">Friday</span>
