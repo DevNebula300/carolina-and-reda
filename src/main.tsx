@@ -27,24 +27,6 @@ function OnePageExperience() {
       <section id="accommodations"><AccommodationsPage /></section>
       <section id="discover"><DiscoverPage /></section>
       <section id="registry"><RegistryPage /></section>
-      <section id="contact-us" className="page-banner">
-        <div className="page-banner__inner">
-          <h2 className="page-banner__title">Contact Us</h2>
-          <p className="page-banner__body">Anything else? Contact us here! :)</p>
-          <p className="page-body page-body--centered page-banner__contact-email">
-            <a href="mailto:wardalynn@studiomaev.com">wardalynn@studiomaev.com</a>
-          </p>
-        </div>
-      </section>
-      <section id="moodboard-strip" className="moodboard-strip" aria-label="Moodboard">
-        <img
-          src="/moodboard.png"
-          alt=""
-          className="moodboard-strip__img"
-          loading="lazy"
-          decoding="async"
-        />
-      </section>
       <section id="dress-code"><DressCodePage /></section>
     </div>
   )

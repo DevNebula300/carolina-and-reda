@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-const SATURDAY_MOODBOARD_IMAGES = Array.from({ length: 5 }, (_, i) => `/saturday/ss${i + 1}.jpg`)
+const SATURDAY_MOODBOARD_IMAGES = Array.from({ length: 4 }, (_, i) => `/saturday/ss${i + 1}.jpg`)
 
 function SaturdayMoodboardRow({ images, id }: { images: string[]; id: string }) {
   const ref = useRef<HTMLDivElement>(null)

@@ -36,15 +36,17 @@ export function InvitationPage() {
             <div className="inv-page__program-card">
               <h3 className="inv-page__program-day">FRIDAY - Moroccan Wedding</h3>
               <ul className="inv-page__program-schedule">
-                <li>19:30 - Guest Transfers</li>
-                <li>20:00 - Celebration Begins</li>
+                <li>19.30 - Guest Transfers</li>
+                <li>20:00 - Celebrations begins</li>
+                <li>22:00 - Dinner</li>
               </ul>
             </div>
             <div className="inv-page__program-card">
-              <h3 className="inv-page__program-day">SATURDAY — Love Party</h3>
+              <h3 className="inv-page__program-day">SATURDAY - Love Celebration</h3>
               <ul className="inv-page__program-schedule">
-                <li>17:30 - Guest Transfers</li>
+                <li>17:30 - Guests Transfers</li>
                 <li>19:00 - Ceremony Begins</li>
+                <li>21:00 - Dinner</li>
                 <li>23:00 - Party</li>
               </ul>
             </div>

@@ -8,6 +8,7 @@ const SPOT_IMAGES: Record<string, string> = {
   'Jardin Majorelle': '/location/jardin.jpg',
   'YSL Museum': '/location/YSL.webp',
   'MACAAL': '/location/Macaal.jpg',
+  'Selman Hotel': '/location/selman.jpg',
   'Royal Mansour': '/location/royal%20mansour.webp',
   'Kabana Rooftop': '/location/kabana.png',
   'Les Jardins du Lotus': '/location/images%207.jpeg',

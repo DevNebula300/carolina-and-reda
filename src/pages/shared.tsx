@@ -61,7 +61,7 @@ export const ACCOMMODATION_GROUPS: AccommodationGroup[] = [
     ],
   },
   {
-    title: 'Hotels in Marrakech',
+    title: 'Riads in the Medina',
     items: [
       { name: 'El fen', url: 'https://el-fenn.com/' },
       { name: 'Yasmine', url: 'https://www.riad-yasmine.com/fr/' },
@@ -90,6 +90,11 @@ export const DISCOVER_SPOTS = [
     name: 'MACAAL',
     desc: 'For contemporary African art.',
     url: 'https://www.macaal.org/',
+  },
+  {
+    name: 'Selman Hotel',
+    desc: 'For horse lovers and a unique Sunday brunch',
+    url: 'https://www.selman-marrakech.com/',
   },
   {
     name: 'Royal Mansour',

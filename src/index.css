@@ -306,11 +306,6 @@ a:hover {
   border-bottom: 1px solid var(--color-border-soft);
 }
 
-/* In one-page scroll, avoid large gap after Contact Us */
-#dress-code .dresscode-intro {
-  padding-top: 3.25rem;
-}
-
 .dresscode-intro__inner {
   max-width: 52rem;
   margin: 0 auto;
@@ -371,20 +366,6 @@ a:hover {
   gap: 2rem;
 }
 
-/* Full-bleed image between Contact Us and Dress Code */
-.moodboard-strip {
-  margin: 0;
-  padding: 0;
-  line-height: 0;
-  background: var(--color-bg);
-}
-
-.moodboard-strip__img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
 /* ── MOODBOARD SECTION ── */
 .dresscode-board {
   padding: 4rem 0 5rem;
@@ -407,6 +388,11 @@ a:hover {
   margin: 0.75rem 0 0.4rem;
 }
 
+/* Extra breathing room between "Cocktail Attire" and "Saturday Moodboard" */
+.dresscode-intro__days + .dresscode-board__title {
+  margin-top: 4rem;
+}
+
 .dresscode-board__sub {
   font-family: var(--font-display);
   font-size: 0.75rem;
@@ -418,7 +404,7 @@ a:hover {
 /* Saturday moodboard: single row, max 5 images */
 .dresscode-saturday-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.65rem;
   max-width: 72rem;
   margin: 0 auto;
@@ -584,7 +570,7 @@ a:hover {
 .page-hotel-group-title {
   font-family: var(--font-body);
   font-weight: 300;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.045em;
   text-transform: uppercase;
   color: var(--color-accent);
 }
@@ -599,7 +585,7 @@ a:hover {
 .home__details-title,
 .page-centred .page-section-title,
 .page-hotel-group-title {
-  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-size: clamp(1rem, 2.8vw, 1.8rem);
   line-height: 1.15;
 }
 
@@ -708,13 +694,21 @@ a:hover {
 
 /* CENTRED section */
 .page-centred {
-  /* top padding clears the fixed nav (~88px) + generous breathing room */
-  padding: calc(88px + 5rem) 1.5rem 6rem;
+  /* top padding clears the fixed nav (~88px) */
+  padding: calc(88px + 1rem) 1.5rem 6rem;
   min-height: 100vh;
   min-height: 100dvh;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
+}
+
+@media (max-width: 767px) {
+  /* Don't force full-viewport height on small screens; it creates large blank gaps */
+  .page-centred {
+    min-height: auto;
+    padding: calc(88px + 0.75rem) 1.25rem 4rem;
+  }
 }
 
 .page-centred__inner {
@@ -809,7 +803,7 @@ a:hover {
 .page-hotel-group-title {
   font-size: 1.1rem;
   font-weight: 300;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.08em;
   margin: 0 0 0.35rem;
   line-height: 1.25;
 }
@@ -2063,7 +2057,7 @@ a:hover {
 }
 
 .inv-page__title {
-  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-size: clamp(1rem, 2.8vw, 1.8rem);
   margin: 0 0 3.5rem;
   line-height: 1.15;
 }
@@ -2097,7 +2091,7 @@ a:hover {
 /* Friday card — left, tilted CCW, on top so script text stays readable */
 .inv-page__card--friday {
   width: clamp(210px, 37vw, 295px);
-  transform: rotate(-7deg) translateY(-28px);
+  transform: rotate(-7deg) translateX(-14px) translateY(-28px);
   margin-right: -40px;
   z-index: 3;
   box-shadow:
@@ -2198,7 +2192,7 @@ a:hover {
   .home__details-title,
   .rsvp-hero__title,
   .dresscode-intro__title {
-    font-size: clamp(2.1rem, 8vw, 3rem);
+    font-size: clamp(1rem, 2.8vw, 1.8rem);
     line-height: 1.12;
   }
 
@@ -2241,7 +2235,18 @@ a:hover {
   }
 
   .inv-page__card--friday {
-    margin-right: -30px;
+    transform: rotate(-7deg) translateX(-10px) translateY(-28px);
+    margin-right: -28px;
+  }
+
+  /* Reduce full-screen RSVP/Registry hero height on phones
+     so next sections (e.g. Accommodations) appear sooner. */
+  .rsvp-hero {
+    min-height: 72vh;
+  }
+
+  .rsvp-hero__inner {
+    padding: calc(88px + 1.5rem) 1.25rem 2rem;
   }
 }
 
