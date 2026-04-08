@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-const SATURDAY_MOODBOARD_IMAGES = Array.from({ length: 4 }, (_, i) => `/saturday/ss${i + 1}.jpg`)
+const SATURDAY_MOODBOARD_IMAGES = Array.from({ length: 8 }, (_, i) => `/saturday/ss${i + 1}.jpg`)
 
 function SaturdayMoodboardRow({ images, id }: { images: string[]; id: string }) {
   const ref = useRef<HTMLDivElement>(null)
@@ -61,7 +61,7 @@ export function DressCodePage() {
         </div>
       </section> */}
 
-      {/* ── SATURDAY MOODBOARD (5 images) ── */}
+      {/* ── SATURDAY MOODBOARD ── */}
       <section className="dresscode-board dresscode-board--alt">
         <div className="dresscode-board__header">
           <h2 className="page-section-title">Dress Code</h2>
