@@ -45,7 +45,7 @@ export function InvitationPage() {
               <h3 className="inv-page__program-day">SATURDAY - Love Celebration</h3>
               <ul className="inv-page__program-schedule">
                 <li>17:30 - Guests Transfers</li>
-                <li>19:00 - Ceremony Begins</li>
+                <li>18:00 - Ceremony Begins</li>
                 <li>21:00 - Dinner</li>
                 <li>23:00 - Party</li>
               </ul>
